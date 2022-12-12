@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
@@ -60,21 +59,6 @@ const CommentSchema = new Schema(
 
 CommentSchema.virtual('replyCount').get(function() {
   return this.replies.length;
-=======
-const { Schema, model } = require('mongoose');
-
-const CommentSchema = new Schema({
-  writtenBy: {
-    type: String
-  },
-  commentBody: {
-    type: String
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now
-  }
->>>>>>> f3b0a678453fc33d4c9d29adf238982feac21750
 });
 
 const Comment = model('Comment', CommentSchema);
