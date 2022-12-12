@@ -42,7 +42,6 @@ const handlePizzaSubmit = event => {
   const pizzaName = $pizzaForm.querySelector('#pizza-name').value;
   const createdBy = $pizzaForm.querySelector('#created-by').value;
   const size = $pizzaForm.querySelector('#pizza-size').value;
-  // transform DOM data into a real array of objects to execute .map()
   const toppings = [...$pizzaForm.querySelectorAll('[name=topping]:checked')].map(topping => {
     return topping.value;
   });
@@ -63,11 +62,12 @@ const handlePizzaSubmit = event => {
   })
     .then(response => response.json())
     .then(postResponse => {
-      alert('Pizza created successfully!');
       console.log(postResponse);
     })
     .catch(err => {
       console.log(err);
+      saveRecord(formData);
+      // DO INDEXED DB STUFF HERE
     });
 };
 
