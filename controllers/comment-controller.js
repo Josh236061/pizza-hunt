@@ -3,7 +3,11 @@ const { Comment, Pizza } = require('../models');
 const commentController = {
   // add comment to pizza
   addComment({ params, body }, res) {
+<<<<<<< HEAD
     console.log(params);
+=======
+    console.log(body);
+>>>>>>> f3b0a678453fc33d4c9d29adf238982feac21750
     Comment.create(body)
       .then(({ _id }) => {
         return Pizza.findOneAndUpdate(
@@ -13,6 +17,7 @@ const commentController = {
         );
       })
       .then(dbPizzaData => {
+<<<<<<< HEAD
         console.log(dbPizzaData);
         if (!dbPizzaData) {
           res.status(404).json({ message: 'No pizza found with this id!' });
@@ -31,6 +36,8 @@ const commentController = {
       { new: true, runValidators: true }
     )
       .then(dbPizzaData => {
+=======
+>>>>>>> f3b0a678453fc33d4c9d29adf238982feac21750
         if (!dbPizzaData) {
           res.status(404).json({ message: 'No pizza found with this id!' });
           return;
@@ -61,6 +68,7 @@ const commentController = {
         res.json(dbPizzaData);
       })
       .catch(err => res.json(err));
+<<<<<<< HEAD
   },
   // remove reply
   removeReply({ params }, res) {
@@ -71,6 +79,8 @@ const commentController = {
     )
       .then(dbPizzaData => res.json(dbPizzaData))
       .catch(err => res.json(err));
+=======
+>>>>>>> f3b0a678453fc33d4c9d29adf238982feac21750
   }
 };
 

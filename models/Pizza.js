@@ -4,6 +4,7 @@ const dateFormat = require('../utils/dateFormat');
 const PizzaSchema = new Schema(
   {
     pizzaName: {
+<<<<<<< HEAD
       type: String,
       required: true,
       trim: true
@@ -12,6 +13,12 @@ const PizzaSchema = new Schema(
       type: String,
       required: true,
       trim: true
+=======
+      type: String
+    },
+    createdBy: {
+      type: String
+>>>>>>> f3b0a678453fc33d4c9d29adf238982feac21750
     },
     createdAt: {
       type: Date,
@@ -20,8 +27,11 @@ const PizzaSchema = new Schema(
     },
     size: {
       type: String,
+<<<<<<< HEAD
       required: true,
       enum: ['Personal', 'Small', 'Medium', 'Large', 'Extra Large'],
+=======
+>>>>>>> f3b0a678453fc33d4c9d29adf238982feac21750
       default: 'Large'
     },
     toppings: [],
@@ -44,10 +54,14 @@ const PizzaSchema = new Schema(
 
 // get total count of comments and replies on retrieval
 PizzaSchema.virtual('commentCount').get(function() {
+<<<<<<< HEAD
   return this.comments.reduce(
     (total, comment) => total + comment.replies.length + 1,
     0
   );
+=======
+  return this.comments.length;
+>>>>>>> f3b0a678453fc33d4c9d29adf238982feac21750
 });
 
 const Pizza = model('Pizza', PizzaSchema);
